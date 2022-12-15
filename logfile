@@ -1,0 +1,15 @@
+2022-12-14 11:17:23.653 EST [60872] LOG:  starting PostgreSQL 14.6 (Homebrew) on aarch64-apple-darwin22.1.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2022-12-14 11:17:23.660 EST [60872] LOG:  listening on IPv6 address "::1", port 5432
+2022-12-14 11:17:23.660 EST [60872] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-12-14 11:17:23.661 EST [60872] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-12-14 11:17:23.663 EST [60873] LOG:  database system was shut down at 2022-12-14 11:17:17 EST
+2022-12-14 11:17:23.666 EST [60872] LOG:  database system is ready to accept connections
+2022-12-14 11:17:29.717 EST [60909] FATAL:  database "Apartment_Connect_development" does not exist
+2022-12-14 13:21:54.343 EST [68660] LOG:  invalid length of startup packet
+2022-12-14 13:21:55.416 EST [68661] LOG:  invalid length of startup packet
+2022-12-14 13:21:55.417 EST [68664] LOG:  invalid length of startup packet
+2022-12-14 13:21:55.419 EST [68665] LOG:  invalid length of startup packet
+2022-12-14 13:21:57.551 EST [68671] LOG:  invalid length of startup packet
+2022-12-14 13:22:02.592 EST [68672] LOG:  invalid length of startup packet
+2022-12-14 13:22:02.593 EST [68677] LOG:  invalid length of startup packet
+2022-12-14 13:22:02.595 EST [68678] LOG:  invalid length of startup packet

@@ -1,0 +1,2 @@
+2022-12-14 11:21:47.856 EST [61790] FATAL:  lock file "postmaster.pid" already exists
+2022-12-14 11:21:47.856 EST [61790] HINT:  Is another postmaster (PID 60872) running in data directory "/Users/joerobbins/Development/code/phase-5/ApartmentConnect/ApartmentConnect/Apartment-Connect/Apartment-Connect"?

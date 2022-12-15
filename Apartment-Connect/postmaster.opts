@@ -1,0 +1,1 @@
+/opt/homebrew/Cellar/postgresql@14/14.6/bin/postgres "-D" "Apartment-Connect"
