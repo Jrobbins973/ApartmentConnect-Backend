@@ -9,7 +9,7 @@ class Tenant < ApplicationRecord
 
 
     validates :email_address, presence: true, uniqueness: true
-    validates :password_digest, presence: true, length: {minimum: 6}
+    # validates :password_digest, presence: true, length: {minimum: 6}
     
     
     

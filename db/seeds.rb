@@ -3,10 +3,13 @@ require 'faker'
 puts "deleting old data.."
 
 Tenant.destroy_all
+ForumPost.destroy_all
+Lease.destroy_all
+ForumPostReply.destroy_all
 
 
 puts "seeding tenants"
-tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password_digest: "1234")
+tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password_digest: "123456")
 50.times do 
     Tenant.create( 
         first_name: Faker::Name.first_name,
