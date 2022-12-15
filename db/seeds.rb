@@ -10,6 +10,7 @@ ForumPostReply.destroy_all
 
 puts "seeding tenants"
 tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password_digest: "123456")
+tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password_digest: "123456")
 50.times do 
     Tenant.create( 
         first_name: Faker::Name.first_name,
@@ -23,11 +24,13 @@ puts "complete"
 
 puts "seeding apartments"
 apartment1 = Apartment.create(layout: "2 Bedroom", apartment_number: "937-B", occupied: true)
+apartment2 = Apartment.create(layout: "1 Bedroom", apartment_number: "137-B", occupied: true)
 puts "apartments seeded"
 
 
 puts "seeding leases"
-Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), rent: 3560, rent_duedate: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"))
+Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: false, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), rent: 3560, rent_duedate: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"))
+Lease.create(apartment_id: apartment2.id, tenant_id: tenant2.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), rent: 3560, rent_duedate: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"))
 puts "leases seeded"
 
 
@@ -39,6 +42,6 @@ puts "done making forum posts"
 
 puts "making forum post replies"
 50.times do
-    ForumPostReply.create(forum_post_id: rand(ForumPost.first.id..ForumPost.last.id), tenant_id: rand(Tenant.first.id..Tenant.last.id))
+    ForumPostReply.create(forum_post_id: rand(ForumPost.first.id..ForumPost.last.id), tenant_id: rand(Tenant.first.id..Tenant.last.id), text: Faker::GreekPhilosophers.quote)
 end
 puts "done making replies"
