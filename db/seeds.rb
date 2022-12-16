@@ -9,8 +9,8 @@ ForumPostReply.destroy_all
 
 
 puts "seeding tenants"
-tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password: "123456")
-tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password: "123456")
+tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password: "password")
+tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password: "password")
 50.times do 
     Tenant.create( 
         first_name: Faker::Name.first_name,

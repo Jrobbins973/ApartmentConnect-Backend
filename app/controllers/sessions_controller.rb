@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
 
     # LOGIN
     def create
-        tenant = Tenant.find_by(first_name: params[:first_name])
+        tenant = Tenant.find_by(email_address: params[:email_address])
         if tenant and tenant.authenticate(params[:password])
             session[:tenant_id] = tenant.id 
             render json: tenant, status: :ok, except: (:password_digest)
         else
-            render json: {errors: "Invalid Name or Password"}, status: 401
+            render json: {errors: "Invalid Email or Password"}, status: 401
         end
     end
 
