@@ -21,7 +21,7 @@ class TenantsController < ApplicationController
 private
 
     def tenant_params 
-    params.permit(:first_name, :last_name, :phone_number, :email_address, :password_digest)
+    params.permit(:first_name, :last_name, :phone_number, :email_address, :password)
     end
 
     
