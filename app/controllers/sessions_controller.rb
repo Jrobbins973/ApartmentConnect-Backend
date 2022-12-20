@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         tenant = Tenant.find_by(email_address: params[:email_address])
         if tenant and tenant.authenticate(params[:password])
             session[:tenant_id] = tenant.id 
-            render json: tenant, status: :ok, except: (:password_digest)
+            render json: tenant, status: :ok, except: (:password_digest), include: :leases
         else
             render json: {errors: "Invalid Email or Password"}, status: 401
         end
