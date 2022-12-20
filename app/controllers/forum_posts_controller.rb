@@ -15,7 +15,7 @@ class ForumPostsController < ApplicationController
     # CREATE
     def create
     post = ForumPost.create(forum_post_params)
-    render json: post, status: :created
+    render json: post, status: :created, methods: :full_tenant_name
     end
 
     # UPDATE / PATCH
