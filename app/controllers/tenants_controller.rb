@@ -18,6 +18,8 @@ class TenantsController < ApplicationController
     render json: tenant, status: :created, except: :password_digest
     end
 
+    
+
 private
 
     def tenant_params 

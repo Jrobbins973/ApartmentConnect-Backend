@@ -25,6 +25,7 @@ class ForumPostsController < ApplicationController
     render json: post, status: :ok
     end
 
+    
     # DELETE
     def destroy
     post = ForumPost.find(params[:id])
