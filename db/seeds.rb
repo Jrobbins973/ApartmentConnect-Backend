@@ -45,3 +45,9 @@ puts "making forum post replies"
     ForumPostReply.create(forum_post_id: rand(ForumPost.first.id..ForumPost.last.id), tenant_id: rand(Tenant.first.id..Tenant.last.id), text: Faker::GreekPhilosophers.quote)
 end
 puts "done making replies"
+
+puts "seeding reservations"
+10.times do 
+    Reservation.create(tenant_id: rand(Tenant.first.id..Tenant.last.id), ammenity: Faker::Science.element, date_reserved: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), description: Faker::Games::WorldOfWarcraft.quote, approved: true )
+end
+puts "done seeding reservations"
