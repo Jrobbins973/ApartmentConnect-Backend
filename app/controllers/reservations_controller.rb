@@ -24,6 +24,14 @@ class ReservationsController < ApplicationController
     render json: reservation, status: :ok, include: [:tenant]
     end
 
+    # DELETE RESERVATIONS
+    def destroy
+    reservation = Reservation.find(params[:id])
+    reservation.destroy
+    render json: {}
+    head :no_content
+    end
+
     private 
 
     def reservation_params 

@@ -14,7 +14,7 @@ class TenantsController < ApplicationController
 
     # CREATE
     def create
-    tenant = Tenant.create(tenant_params)
+    tenant = Tenant.create!(tenant_params)
     render json: tenant, status: :created, except: :password_digest
     end
 

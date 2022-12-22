@@ -9,6 +9,23 @@ ForumPostReply.destroy_all
 Reservation.destroy_all
 
 
+
+event_array = ["A 'left-handed' party where everything is reversed, including decorations, food, and games.",
+    'A "time travel" party where guests dress up as characters from different time periods and play games related to that time period.',
+    'A "swap" party where guests bring a wrapped object from their house and trade with someone else at the party.',
+    'A "pet rock" party where guests bring their most creative or unique pet rock and compete in a series of pet rock-themed games.',
+    'A "mystery flavor" party where guests try to guess the flavor of different foods, drinks, and candies that have been dyed unusual colors.',
+    'A "silent" party where guests communicate only through writing or nonverbal gestures.',
+    'A "dessert first" party where the main course is served as dessert and vice versa.',
+    'A "reverse beauty pageant" where guests compete in a series of challenges that test their "ugliness," such as making the funniest faces or wearing the most ridiculous outfits.',
+    'A "fancy dress" party where guests dress up in formal attire and act as though they are at a high society event, even if the setting is casual.',
+    'A "five senses" party where each room of the house is themed around one of the five senses (sight, sound, smell, taste, touch) and guests must navigate through the house using only that sense.']
+
+random_event = event_array.sample
+
+
+
+
 puts "seeding tenants"
 tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password: "password")
 tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password: "password")
@@ -48,15 +65,15 @@ end
 puts "done making replies"
 
 puts "seeding reservations"
-Reservation.create(tenant_id: 1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: "Christmas Party", title: "Joe's Holiday Party")
+Reservation.create!(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: event_array.sample, title: "Joe's Holiday Party")
 
-Reservation.create(tenant_id: 2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
+Reservation.create(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
 
-Reservation.create(tenant_id: 2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "Watching sunday football, all are welcome", title: "Christmas Day Football Watch Party")
+Reservation.create(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "FOOTBALL BABY", title: "Christmas Day Football Watch Party")
 
-Reservation.create(tenant_id: 1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: "Christmas Party", title: "Joe's Holiday Party")
+Reservation.create(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 28, 2022", description: event_array.sample, title: "Mystery Party")
 
-Reservation.create(tenant_id: 2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
+Reservation.create(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 29, 2022", description: event_array.sample, title: "Mystery Party")
 
-Reservation.create(tenant_id: 2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "Watching sunday football, all are welcome", title: "Christmas Day Football Watch Party")
+Reservation.create(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 30, 2022", description: event_array.sample, title: "Mystery Party")
 puts "done seeding reservations"
