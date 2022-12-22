@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
     # GETS A FEW RECENT RESERVATIONS '/recentreservations'
     def recent 
     reservation = Reservation.order(id: :asc).limit(2)
-
     render json: reservation, status: :ok, include: [:tenant]
     end
 

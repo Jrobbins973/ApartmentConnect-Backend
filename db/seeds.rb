@@ -52,5 +52,11 @@ Reservation.create(tenant_id: 1, ammenity: "Sky Lounge", date_reserved: "Decembe
 
 Reservation.create(tenant_id: 2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
 
-Reservation.create(tenant_id: 2, ammenity: "Movie Room", date_reserved: "December, 2t, 2022", description: "Watching sunday football, all are welcome", title: "Christmas Day Football Watch Party")
+Reservation.create(tenant_id: 2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "Watching sunday football, all are welcome", title: "Christmas Day Football Watch Party")
+
+Reservation.create(tenant_id: 1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: "Christmas Party", title: "Joe's Holiday Party")
+
+Reservation.create(tenant_id: 2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
+
+Reservation.create(tenant_id: 2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "Watching sunday football, all are welcome", title: "Christmas Day Football Watch Party")
 puts "done seeding reservations"
