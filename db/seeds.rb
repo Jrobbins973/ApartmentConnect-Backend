@@ -36,7 +36,7 @@ puts "leases seeded"
 
 
 puts "making forum_posts"
-50.times do 
+15.times do 
     ForumPost.create(tenant_id: rand(Tenant.first.id..Tenant.last.id), text: Faker::GreekPhilosophers.quote, category: Faker::Job.field)
 end
 puts "done making forum posts"

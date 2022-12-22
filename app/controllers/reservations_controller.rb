@@ -18,6 +18,13 @@ class ReservationsController < ApplicationController
     render json: reservation, status: :created, include: [:tenant]
     end
 
+    # GETS A FEW RECENT RESERVATIONS '/recentreservations'
+    def recent 
+    reservation = Reservation.order(id: :asc).limit(2)
+
+    render json: reservation, status: :ok, include: [:tenant]
+    end
+
     private 
 
     def reservation_params 

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#delete'
 
   get '/tenantleases', to: 'tenants#leases'
+  get '/recentreservations', to: 'reservations#recent'
 end
