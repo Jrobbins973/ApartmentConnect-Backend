@@ -32,8 +32,14 @@ class ForumPostsController < ApplicationController
     post.destroy
     render json: {}, status: :ok
     head :no_content 
-
     end
+
+    # Sort By category ==> '/category'
+    # def show
+    #     byebug
+    # post_category = ForumPost.where(category: params[:category])
+    # render json: category, status: :ok
+    # end
 
 
     private 
