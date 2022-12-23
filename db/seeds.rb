@@ -21,9 +21,10 @@ event_array = ["A 'left-handed' party where everything is reversed, including de
     'A "fancy dress" party where guests dress up in formal attire and act as though they are at a high society event, even if the setting is casual.',
     'A "five senses" party where each room of the house is themed around one of the five senses (sight, sound, smell, taste, touch) and guests must navigate through the house using only that sense.']
 
-random_event = event_array.sample
 
+forum_post_array = ["I'm moving into a new apartment and I'm wondering what kind of insurance I should get. Renters insurance? Homeowners insurance? Any recommendations?", "I'm moving into a new apartment and I'm trying to figure out the best way to decorate it. Any tips on how to make a small space feel bigger?", "I just moved into a new apartment and I'm having some issues with the air conditioning. It's not working properly and I'm not sure who to contact to fix it. Any advice?", "I'm moving into a new apartment and I'm trying to decide what kind of utilities to set up. Any advice on the best internet and cable providers in the area?", "I'm moving out of my apartment in a few months and I'm trying to figure out the best way to break my lease. Any advice on how to do this without incurring any penalties?", "I just signed a lease for a new apartment and I'm excited to move in, but I'm a little worried about the safety of the area. Can anyone give me some tips on how to stay safe in my new neighborhood?", "I'm having a problem with my neighbors. They're really loud and it's making it hard for me to sleep at night. What should I do?"]
 
+forum_post_category = ["Miscellaneous", "Buying / Selling", "Need Help", "Pets"]
 
 
 puts "seeding tenants"
@@ -54,7 +55,7 @@ puts "leases seeded"
 
 puts "making forum_posts"
 15.times do 
-    ForumPost.create(tenant_id: rand(Tenant.first.id..Tenant.last.id), text: Faker::GreekPhilosophers.quote, category: Faker::Job.field)
+    ForumPost.create(tenant_id: rand(Tenant.first.id..Tenant.last.id), text: forum_post_array.sample, category: forum_post_category.sample)
 end
 puts "done making forum posts"
 
