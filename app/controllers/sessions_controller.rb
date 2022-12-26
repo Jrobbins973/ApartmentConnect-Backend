@@ -4,7 +4,10 @@ class SessionsController < ApplicationController
     def create
         @tenant = Tenant.find_by( email_address: params[:email_address])
         if @tenant and @tenant.authenticate(params[:password])
-            byebug
+            logged_user = JWT.encode({tenant: @tenant.id}, ENV["JWT_TOKEN"])
+            render json: {tenantId: logged_user}, status: :ok
+        else 
+            render json: {errors: ["Invalid email and/or password"]}, status: :unauthorized
         end
         # tenant = Tenant.find_by(email_address: params[:email_address])
         # if tenant and tenant.authenticate(params[:password])
