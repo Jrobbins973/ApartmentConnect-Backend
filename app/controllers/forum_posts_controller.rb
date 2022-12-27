@@ -34,8 +34,8 @@ class ForumPostsController < ApplicationController
     head :no_content 
     end
 
-    # Sort By category ==> '/category'
-    # def show
+    # # Sort By category ==> '/category'
+    # def categories
     #     byebug
     # post_category = ForumPost.where(category: params[:category])
     # render json: category, status: :ok
