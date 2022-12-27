@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   get '/tenantleases', to: 'tenants#leases'
   get '/recentreservations', to: 'reservations#recent'
-  # get '/category', to: 'forum_posts#categories'
+  get '/category', to: 'forum_posts#categories'
   get '/current_tenant', to: 'tenants#current_tenant'
 end
