@@ -1,5 +1,8 @@
 class TenantsController < ApplicationController
 
+    
+    # before_action :authorize!, only: [:show]
+    
     # INDEX
     def index
     tenants = Tenant.all 
@@ -8,9 +11,15 @@ class TenantsController < ApplicationController
 
     # SHOW
     def show
-    tenant = Tenant.find(params[:id])
-    render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases]
+        tenant = Tenant.find(params[:id])
+        render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases]
     end
+    
+    # def current_tenant 
+    #     byebug
+    # tenant = Tenant.find(params[:email_address])
+    # render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases]
+    # end
 
     # CREATE
     def create
