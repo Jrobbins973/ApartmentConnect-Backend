@@ -7,6 +7,8 @@ ForumPost.destroy_all
 Lease.destroy_all
 ForumPostReply.destroy_all
 Reservation.destroy_all
+Apartment.destroy_all
+MaintenanceRequest.destroy_all
 
 
 
@@ -30,13 +32,13 @@ forum_post_category = ["Miscellaneous", "Buying / Selling", "Need Help", "Pets"]
 puts "seeding tenants"
 tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password: "password")
 tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password: "password")
-50.times do 
-    Tenant.create( 
+20.times do 
+    Tenant.create!( 
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         phone_number: Faker::PhoneNumber.cell_phone,
         email_address: Faker::Internet.email,
-        password_digest: Faker::Name.last_name
+        password: "123456"
     )
 end
 puts "complete"
@@ -68,13 +70,18 @@ puts "done making replies"
 puts "seeding reservations"
 Reservation.create!(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: event_array.sample, title: "Joe's Holiday Party")
 
-Reservation.create(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
+Reservation.create!(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
 
-Reservation.create(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "FOOTBALL BABY", title: "Christmas Day Football Watch Party")
+Reservation.create!(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "FOOTBALL BABY", title: "Christmas Day Football Watch Party")
 
-Reservation.create(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 28, 2022", description: event_array.sample, title: "Mystery Party")
+Reservation.create!(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 28, 2022", description: event_array.sample, title: "Mystery Party")
 
-Reservation.create(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 29, 2022", description: event_array.sample, title: "Mystery Party")
+Reservation.create!(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 29, 2022", description: event_array.sample, title: "Mystery Party")
 
-Reservation.create(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 30, 2022", description: event_array.sample, title: "Mystery Party")
+Reservation.create!(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 30, 2022", description: event_array.sample, title: "Mystery Party")
 puts "done seeding reservations"
+
+
+puts "seeding maintenance requests"
+MaintenanceRequest.create!(description: "My fridge door isnt closing properly", tenant_id: Tenant.first.id)
+puts "done seeding maintenance requests"
