@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_155511) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_29_153831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,13 +62,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_155511) do
   end
 
   create_table "maintenance_requests", force: :cascade do |t|
-    t.integer "apartment_id"
     t.string "description"
     t.string "urgency"
     t.boolean "completed"
     t.string "completed_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tenant_id"
   end
 
   create_table "reservations", force: :cascade do |t|

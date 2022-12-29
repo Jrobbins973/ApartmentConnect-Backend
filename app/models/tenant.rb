@@ -4,6 +4,7 @@ class Tenant < ApplicationRecord
     has_many :forum_posts
     has_many :forum_post_replies
     has_many :reservations
+    has_many :maintenance_requests
     has_secure_password
 
 

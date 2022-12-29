@@ -12,7 +12,7 @@ class TenantsController < ApplicationController
     # SHOW
     def show
         tenant = Tenant.find(params[:id])
-        render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases]
+        render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases, :maintenance_requests]
     end
     
     # def current_tenant 
