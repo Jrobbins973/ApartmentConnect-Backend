@@ -50,8 +50,9 @@ puts "apartments seeded"
 
 
 puts "seeding leases"
-Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: false, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), rent: 3560, rent_duedate: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"))
-Lease.create(apartment_id: apartment2.id, tenant_id: tenant2.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), rent: 3560, rent_duedate: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"))
+Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: false, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "9/9/2023", rent: "$3,560", rent_duedate: "1/9/2023")
+
+Lease.create(apartment_id: apartment2.id, tenant_id: tenant2.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "6/23/2023",  rent: "$2,670", rent_duedate: "1/23/2023" )
 puts "leases seeded"
 
 

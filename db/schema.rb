@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_29_153831) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_01_220836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,14 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_153831) do
   create_table "leases", force: :cascade do |t|
     t.integer "apartment_id"
     t.integer "tenant_id"
-    t.datetime "move_out_date"
+    t.string "move_out_date"
     t.datetime "move_in_date"
     t.boolean "pets"
     t.integer "pet_count"
     t.datetime "lease_start"
-    t.datetime "lease_end"
-    t.integer "rent"
-    t.datetime "rent_duedate"
+    t.string "lease_end"
+    t.string "rent"
+    t.string "rent_duedate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
