@@ -14,7 +14,7 @@ class LeasesController < ApplicationController
 
     # CREATE 
     def create
-    lease = Lease.create(lease_params)
+    lease = Lease.create!(lease_params)
     render json: lease, status: :created
     end
 
