@@ -1,5 +1,12 @@
 class ForumPostRepliesController < ApplicationController
 
+
+    # SHOW
+    def show
+    reply = ForumPostReply.find(params[:id])
+    render json: reply, status: :ok, methods: :full_name
+    end
+
     # CREATE NEW
     def create
     reply = ForumPostReply.create!(reply_params)
@@ -10,14 +17,14 @@ class ForumPostRepliesController < ApplicationController
     def destroy
     reply = ForumPostReply.find(params[:id])
     reply.destroy
-    render json: {}, status: :ok
+    render json: {}, status: :ok, methods: :full_name
     end
 
     # UPDATE / PATCH
     def update
     reply = ForumPostReply.find(params[:id])
     reply.update!(reply_params)
-    render json: reply, status: :ok
+    render json: reply, status: :ok, methods: :full_name
     end
 
     private
