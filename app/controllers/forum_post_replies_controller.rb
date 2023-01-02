@@ -13,6 +13,13 @@ class ForumPostRepliesController < ApplicationController
     render json: {}, status: :ok
     end
 
+    # UPDATE / PATCH
+    def update
+    reply = ForumPostReply.find(params[:id])
+    reply.update!(reply_params)
+    render json: reply, status: :ok
+    end
+
     private
 
     def reply_params
