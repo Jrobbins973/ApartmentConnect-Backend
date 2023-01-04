@@ -2,7 +2,8 @@ class ReservationsController < ApplicationController
 
     # INDEX
     def index
-    reservations = Reservation.all 
+    reservations = Reservation.all.order(id: :desc)
+    # reservations.order(id: :desc) 
     render json: reservations, status: :ok, include: [:tenant]
     end
 
@@ -20,7 +21,7 @@ class ReservationsController < ApplicationController
 
     # GETS A FEW RECENT RESERVATIONS '/recentreservations'
     def recent 
-    reservation = Reservation.order(id: :asc).limit(2)
+    reservation = Reservation.order(id: :desc).limit(2)
     render json: reservation, status: :ok, include: [:tenant]
     end
 

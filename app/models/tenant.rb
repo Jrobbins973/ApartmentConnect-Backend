@@ -13,7 +13,9 @@ class Tenant < ApplicationRecord
     validates :password, presence: true, length: {minimum: 6}
     validates :email_address, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
     
-
+    def full_name 
+        "#{first_name} #{last_name}"
+    end
     
     
 
