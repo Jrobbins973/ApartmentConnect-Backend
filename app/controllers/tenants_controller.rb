@@ -6,13 +6,13 @@ class TenantsController < ApplicationController
     # INDEX
     def index
     tenants = Tenant.all 
-    render json: tenants, status: :ok, except: :password_digest, include: :forum_posts
+    render json: tenants, status: :ok, except: :password_digest, include: :forum_posts, methods: :full_name
     end
 
     # SHOW
     def show
         tenant = Tenant.find(params[:id])
-        render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases, :maintenance_requests]
+        render json: tenant, status: :ok, except: :password_digest, include: [:forum_posts, :leases, :maintenance_requests], methods: :full_name
     end
     
     # def current_tenant 

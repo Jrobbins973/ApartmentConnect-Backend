@@ -1,6 +1,13 @@
 class ForumPostRepliesController < ApplicationController
 
 
+    # INDEX
+
+    def index
+    reply = ForumPostReply.all 
+    render json: reply, status: :ok, methods: :full_name
+    end
+
     # SHOW
     def show
     reply = ForumPostReply.find(params[:id])
@@ -10,7 +17,7 @@ class ForumPostRepliesController < ApplicationController
     # CREATE NEW
     def create
     reply = ForumPostReply.create!(reply_params)
-    render json: reply, status: :created
+    render json: reply, status: :created, methods: :full_name
     end
 
     # DELETE
