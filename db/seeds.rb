@@ -29,6 +29,9 @@ forum_post_array = ["I'm moving into a new apartment and I'm wondering what kind
 forum_post_category = ["Miscellaneous", "Buying / Selling", "Need Help", "Pets"]
 
 
+forum_reply_array = [ "Thanks for sharing your experience with maintenance requests. I'll definitely keep that in mind when submitting my own in the future.", "I completely agree with your suggestion to have a community BBQ event. I think it would be a great way for residents to get to know each other and have some fun.", "I'm sorry to hear that you've had a negative experience with the parking situation. I'll be sure to keep an eye out and try to be more considerate of others when parking in the future.", "Thanks for the heads up about the water outage. I'll make sure to stock up on bottled water just in case.", "I'm glad to see that the management team is addressing the issue with the elevators. It's important that they are in good working order for the safety and convenience of all residents.", "I completely understand your frustration with the noise levels in the building. I'll be sure to be more mindful of my own noise levels and try to be a good neighbor.", "Thanks for sharing the information about the package delivery system. I'll make sure to use it in the future to avoid any lost packages.", "I totally agree with your suggestion for a bike storage room. It would be a great addition for residents who prefer to bike as their main mode of transportation.","I'm sorry to hear about your negative experience with the leasing office staff. I'll be sure to keep that in mind and try to be more patient and understanding in the future.", "I completely understand your concern about security in the building. I'll be sure to report any suspicious activity to the management team."]
+
+
 puts "seeding tenants"
 tenant1 = Tenant.create(first_name: "Joe", last_name: "Robbins", phone_number: "123-456-7890", email_address: "joe@joe.com", password: "password")
 tenant2 = Tenant.create(first_name: "Tim", last_name: "Apple", phone_number: "123-456-7890", email_address: "tim@apple.com", password: "password")
@@ -50,9 +53,9 @@ puts "apartments seeded"
 
 
 puts "seeding leases"
-Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: false, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "9/9/2023", rent: "$3,560", rent_duedate: "1/9/2023")
+# Lease.create(apartment_id: apartment1.id, tenant_id: tenant1.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: false, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "9/9/2023", rent: "$3,560", rent_duedate: "1/9/2023")
 
-Lease.create(apartment_id: apartment2.id, tenant_id: tenant2.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "6/23/2023",  rent: "$2,670", rent_duedate: "1/23/2023" )
+# Lease.create(apartment_id: apartment2.id, tenant_id: tenant2.id, move_in_date: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), pets: true, pet_count: 1, lease_start: DateTime.strptime("09/14/2009 8:00", "%m/%d/%Y %H:%M"), lease_end: "6/23/2023",  rent: "$2,670", rent_duedate: "1/23/2023" )
 puts "leases seeded"
 
 
@@ -64,25 +67,27 @@ puts "done making forum posts"
 
 puts "making forum post replies"
 50.times do
-    ForumPostReply.create(forum_post_id: rand(ForumPost.first.id..ForumPost.last.id), tenant_id: rand(Tenant.first.id..Tenant.last.id), text: Faker::GreekPhilosophers.quote)
+    ForumPostReply.create(forum_post_id: rand(ForumPost.first.id..ForumPost.last.id), tenant_id: rand(Tenant.first.id..Tenant.last.id), text: forum_reply_array.sample)
 end
 puts "done making replies"
+
+
 
 puts "seeding reservations"
 Reservation.create!(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 25, 2022", description: event_array.sample, title: "Joe's Holiday Party")
 
 Reservation.create!(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 26, 2022", description: "Pool Party for my 2 year old, other kids welcome!", title: "2nd Birthday Party")
 
-Reservation.create!(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "FOOTBALL BABY", title: "Christmas Day Football Watch Party")
+Reservation.create!(tenant: tenant1, ammenity: "Movie Room", date_reserved: "December, 27, 2022", description: "FOOTBALL BABY", title: "Christmas Day Football Watch Party")
 
-Reservation.create!(tenant: tenant1, ammenity: "Sky Lounge", date_reserved: "December, 28, 2022", description: event_array.sample, title: "Mystery Party")
+Reservation.create!(tenant: tenant2, ammenity: "Sky Lounge", date_reserved: "December, 28, 2022", description: event_array.sample, title: "Mystery Party")
 
-Reservation.create!(tenant: tenant2, ammenity: "Pool", date_reserved: "December, 29, 2022", description: event_array.sample, title: "Mystery Party")
+Reservation.create!(tenant: tenant1, ammenity: "Pool", date_reserved: "December, 29, 2022", description: event_array.sample, title: "Mystery Party")
 
 Reservation.create!(tenant: tenant2, ammenity: "Movie Room", date_reserved: "December, 30, 2022", description: event_array.sample, title: "Mystery Party")
 puts "done seeding reservations"
 
 
-puts "seeding maintenance requests"
-MaintenanceRequest.create!(description: "My fridge door isnt closing properly", tenant_id: Tenant.first.id)
-puts "done seeding maintenance requests"
+# puts "seeding maintenance requests"
+# MaintenanceRequest.create!(description: "My fridge door isnt closing properly", tenant_id: Tenant.first.id)
+# puts "done seeding maintenance requests"

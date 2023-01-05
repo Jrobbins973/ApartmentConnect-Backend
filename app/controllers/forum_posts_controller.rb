@@ -2,7 +2,7 @@ class ForumPostsController < ApplicationController
 
     # INDEX
     def index
-    posts = ForumPost.all 
+    posts = ForumPost.all.order(id: :desc)
     render json: posts, status: :ok, include: :forum_post_replies, methods: :full_tenant_name
     end
 
